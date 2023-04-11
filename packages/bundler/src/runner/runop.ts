@@ -16,7 +16,7 @@ import { DeterministicDeployer, HttpRpcClient, SimpleAccountAPI } from '@account
 import { runBundler } from '../runBundler'
 import { BundlerServer } from '../BundlerServer'
 
-const ENTRY_POINT = '0x1306b01bc3e4ad202612d3843387e94737673f53'
+const ENTRY_POINT = '0x48e60BBb664aEfAc9f14aDB42e5FB5b4a119EB66'
 
 class Runner {
   bundlerProvider!: HttpRpcClient
@@ -169,7 +169,7 @@ async function main (): Promise<void> {
   const bal = await getBalance(addr)
   console.log('account address', addr, 'deployed=', await isDeployed(addr), 'bal=', formatEther(bal))
   // TODO: actual required val
-  const requiredBalance = parseEther('0.5')
+  const requiredBalance = parseEther('0.1')
   if (bal.lt(requiredBalance.div(2))) {
     console.log('funding account to', requiredBalance)
     await signer.sendTransaction({
